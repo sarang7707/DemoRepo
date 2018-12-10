@@ -1,0 +1,43 @@
+<div class="container" id="dv_Login">
+    <h1 class="form-heading">login Form</h1>
+    <div class="login-form">
+        <div class="main-div">
+            <div class="panel">
+                <h2>Admin Login</h2>
+            </div>
+            <form [formGroup]="loginForm" (ngSubmit)="loginSubmit()" id="Login">
+                <div *ngIf="isLoginError" class="red-text center error-message">
+                    <i class="material-icons"></i> Incorrect username or password
+                </div>
+                <div class="form-group">
+
+                    <input type="email" class="form-control" id="inputEmail" placeholder="Email Address" formControlName="email">
+                </div>
+                <div *ngIf="login.email.invalid && (login.email.dirty || login.email.touched)" class="text-danger">
+                    <div *ngIf="login.email.errors.required">
+                        Email is required.
+                    </div>
+                    <div *ngIf="login.email.errors.pattern">
+                        Email is not valid.
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" id="inputPassword" placeholder="Password" formControlName="password">
+                </div>
+                <div *ngIf="login.password.invalid && (login.password.dirty || login.password.touched)" class="text-danger">
+                    <div *ngIf="login.password.errors.required">
+                        Password is required.
+                    </div>
+                </div>
+                <div class="forgot">
+                    <a href="reset.html">Forgot password?</a>
+                </div>
+                <button type="submit" class="btn btn-primary">Login</button>
+                <br />
+                <br />
+
+                <button type="button" class="btn btn-primary" [routerLink]="['/registration']">Register</button>
+            </form>
+        </div>
+    </div>
+</div>

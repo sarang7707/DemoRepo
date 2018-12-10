@@ -1,0 +1,13 @@
+<p><strong>{{idleState}}</strong></p>
+<!--<p *ngIf="lastPing"><small>Last keepalive ping <strong>{{lastPin}}</strong></small></p>-->
+<button (click)="reset()" *ngIf="timedOut">Restart</button>
+<nav>
+    <div class="nav-wrapper">
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li>
+                <a (click)="Logout()">Logout</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<router-outlet></router-outlet>
